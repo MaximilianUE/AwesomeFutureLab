@@ -8,3 +8,24 @@
         </p>
     </div>
 </template>
+
+<script>
+
+
+    const template = (document.currentScript || document._currentScript).ownerDocument.querySelector('template').content;
+
+    class LampInfo extends HTMLElement {
+
+        connectedCallback() {//call once it´s in the DOM
+
+            this.attachShadow({mode: 'open'}); //allows access from the outside but still protects it somehow
+            // $('lamp-info').shadowRoot.querySelector('h1').textContent = "new Text"
+
+            this.shadowRoot.appendChild(document.importNode(template, true));
+
+        }
+    }
+
+    customElements.define('lamp-info', LampInfo);
+
+</script>
