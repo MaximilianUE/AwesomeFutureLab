@@ -1,18 +1,19 @@
 
 <template id="lamp-info">
+    <div class="lampBox">
         <h1>
             Hello my name is <span id="name"> </span>
         </h1>
         <p>
             I´m currently turned <span id="status"> </span>
         </p>
+    </div>
 </template>
 
 <script>
 
-
+    const template = document.currentScript.ownerDocument.querySelector('template').content; //select this template
     //polyfill: const template = (document.currentScript || document._currentScript).ownerDocument.querySelector('template').content;
-    const template = document.currentScript.ownerDocument.querySelector('template').content;
 
     class LampInfo extends HTMLElement {
 
