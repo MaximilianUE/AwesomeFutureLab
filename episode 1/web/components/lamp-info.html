@@ -12,7 +12,8 @@
 <script>
 
 
-    const template = (document.currentScript || document._currentScript).ownerDocument.querySelector('template').content;
+    //polyfill: const template = (document.currentScript || document._currentScript).ownerDocument.querySelector('template').content;
+    const template = document.currentScript.ownerDocument.querySelector('template').content;
 
     class LampInfo extends HTMLElement {
 
