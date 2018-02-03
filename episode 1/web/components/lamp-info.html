@@ -29,6 +29,11 @@
             this.shadowRoot.appendChild(document.importNode(template, true)); //attach to main file
 
 
+            this.update();
+        }
+
+        update() {
+            this.shadowRoot.querySelector('#name').textContent = this.name;
         }
     }
 
