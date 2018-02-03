@@ -22,10 +22,12 @@
 
         connectedCallback() { //call once it´s in the DOM
 
-            this.attachShadow({mode: 'open'}); //allows access from the outside but still protects it somehow
-            // $('lamp-info').shadowRoot.querySelector('h1').textContent = "new Text"
+            /**
+             * setup
+             */
+            this.attachShadow({mode: 'open'}); //outside access=> component
+            this.shadowRoot.appendChild(document.importNode(template, true)); //attach to main file
 
-            this.shadowRoot.appendChild(document.importNode(template, true));
 
         }
     }
