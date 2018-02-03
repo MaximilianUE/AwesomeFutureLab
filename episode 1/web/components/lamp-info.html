@@ -16,7 +16,10 @@
 
     class LampInfo extends HTMLElement {
 
-        connectedCallback() {//call once it´s in the DOM
+        get name() { return this.getAttribute('name') }
+        set name(value) { this.setAttribute('name', value) }
+
+        connectedCallback() { //call once it´s in the DOM
 
             this.attachShadow({mode: 'open'}); //allows access from the outside but still protects it somehow
             // $('lamp-info').shadowRoot.querySelector('h1').textContent = "new Text"
