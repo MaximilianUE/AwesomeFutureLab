@@ -45,6 +45,17 @@
         update() {
             this.shadowRoot.querySelector('#name').textContent = this.name;
         }
+
+        updateLight() {
+
+            if ( this.on ) {
+                this.shadowRoot.querySelector('#status').textContent = "on";
+            }
+            else {
+                this.shadowRoot.querySelector('#status').textContent = "off";
+            }
+
+        }
     }
 
     customElements.define('lamp-info', LampInfo);
