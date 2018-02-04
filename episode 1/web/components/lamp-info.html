@@ -17,6 +17,15 @@
 
     class LampInfo extends HTMLElement {
 
+        constructor() {
+
+            super(); //!important
+
+            this.addEventListener('click', e => {
+                this.updateAll();
+                console.log("updated");
+            });
+        }
 
         get name() { return this.getAttribute('name') }
         set name(txt) {
