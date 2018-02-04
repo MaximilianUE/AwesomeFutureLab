@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<style>
+
+    #balconyLamp {
+        display: block;
+    }
+
+    #balconyLamp[on] {
+        background: yellow;
+        color: black;
+    }
+
+</style>
 <head>
     <meta charset="UTF-8">
     <title>Web Component Demo</title>
@@ -8,6 +20,7 @@
 </head>
 <body>
     <lamp-info name="testlamp" on> </lamp-info>
+    <lamp-info name="balconyLamp" on id="balconyLamp"> </lamp-info>
 </body>
 
 </html>
