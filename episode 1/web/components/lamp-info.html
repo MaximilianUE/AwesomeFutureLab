@@ -16,6 +16,7 @@
     //polyfill: const template = (document.currentScript || document._currentScript).ownerDocument.querySelector('template').content;
 
     class LampInfo extends HTMLElement {
+     // customElements.define(''lamp-info', class extends HTMLElement { ... });
 
         constructor() {
 
@@ -23,7 +24,7 @@
 
             this.addEventListener('click', e => {
                 this.updateAll();
-                console.log("updated");
+                console.log("clicked");
             });
         }
 
@@ -45,9 +46,7 @@
 
         connectedCallback() { //call once it´s in the DOM
 
-            /**
-             * setup
-             */
+            /** setup **/
             this.attachShadow({mode: 'open'}); //outside access=> component
             this.shadowRoot.appendChild(document.importNode(template, true)); //attach to main file
 
