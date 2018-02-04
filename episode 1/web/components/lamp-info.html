@@ -74,6 +74,13 @@
             this.updateLight();
         }
 
+        static get observedAttributes() {
+            return ['name', 'on'];
+        }
+        attributeChangedCallback(attrName, oldVal, newVal) {
+            console.log("change caught");
+        }
+
     }
 
     customElements.define('lamp-info', LampInfo);
