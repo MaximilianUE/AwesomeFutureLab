@@ -1,5 +1,16 @@
-
 <template id="lamp-info">
+    <style>
+        .lampBox {
+            display: block;
+            background: green;
+            color: red;
+        }
+
+        .lampBox[on] {
+            background: yellow;
+            color: white;
+        }
+    </style>
     <div class="lampBox">
         <h1>
             Hello my name is <span id="name"> </span>
