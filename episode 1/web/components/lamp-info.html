@@ -17,8 +17,12 @@
 
     class LampInfo extends HTMLElement {
 
+
         get name() { return this.getAttribute('name') }
-        set name(value) { this.setAttribute('name', value) }
+        set name(txt) {
+            this.setAttribute('name', txt);
+            this.updateName();
+        }
 
         get on() { return this.hasAttribute('on') }
         set on(bool) {
@@ -39,10 +43,10 @@
             this.shadowRoot.appendChild(document.importNode(template, true)); //attach to main file
 
 
-            this.update();
+            this.updateAll();
         }
 
-        update() {
+        updateName() {
             this.shadowRoot.querySelector('#name').textContent = this.name;
         }
 
@@ -56,6 +60,12 @@
             }
 
         }
+
+        updateAll() {
+            this.updateName();
+            this.updateLight();
+        }
+
     }
 
     customElements.define('lamp-info', LampInfo);
