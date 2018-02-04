@@ -20,6 +20,16 @@
         get name() { return this.getAttribute('name') }
         set name(value) { this.setAttribute('name', value) }
 
+        get on() { return this.hasAttribute('on') }
+        set on(bool) {
+            if (bool) {
+                this.setAttribute('on', '');
+            } else {
+                this.removeAttribute('on');
+            }
+            this.updateLight();
+        }
+
         connectedCallback() { //call once it´s in the DOM
 
             /**
