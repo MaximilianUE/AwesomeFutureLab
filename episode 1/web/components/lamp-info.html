@@ -11,6 +11,7 @@
             color: white;
         }
     </style>
+
     <div class="lampBox">
         <h1>
             Hello my name is <span id="name"> </span>
@@ -90,6 +91,11 @@
         }
         attributeChangedCallback(attrName, oldVal, newVal) {
             console.log("change caught");
+
+            if ( false ) { //isInDOM
+                console.log("helo");
+                this.updateAll();
+            }
         }
 
     }
