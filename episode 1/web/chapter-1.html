@@ -2,9 +2,217 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Custom Elements</title>
 </head>
+
+<style>
+
+    chapter-introduction h1,
+    chapter-introduction h2 {
+        text-align: center;
+    }
+    
+    /* Example 1 */
+    .awesomeElementContainer1 {
+        background-color: aquamarine;
+    }
+    .awesomeElementContainer1 .awesomeElementSub1 {
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+    }
+
+    /* Example 2 */
+    .awesomeElementContainer2 {
+        background-color: aquamarine;
+    }
+    .awesomeElementContainer2 awesome-Element-Sub2 {
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+    }
+
+    /* Example 3 */
+    awesome-Element-Container3 {
+        background-color: aquamarine;
+    }
+    awesome-Element-Container3 awesome-Element-Sub3 {
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+    }
+
+
+</style>
 <body>
-$END$
+<chapter-introduction>
+
+    <h1>Custom Elements</h1>
+    <h2>What is it?</h2>
+    <ul>
+        <li>replace divs for the most part</li>
+        <li>but does not function exactly like a div (see Example 3)</li>
+        <li>improved readability</li>
+        <li>no more: is it closed?</li>
+        <li>require a "-" in the name</li>
+    </ul>
+    
+</chapter-introduction>
+<br>
+    <hr>
+<br>
+
+<h2>Example 1: </h2>
+<h3>Based on Divs</h3>
+
+<div class="awesomeElement">
+    <div class="awesomeElementContainer1">
+        <div class="awesomeElementMain">
+                <div class="awesomeElementText">
+                <h1>Heading</h1>
+                <p> paragraph </p>
+                <p> second paragraph </p>
+            </div>
+        </div>
+        <div class="awesomeElementSub1">
+            <div class="awesomeElementImage">
+                <img src="img/pixelheart.jpg" height="200px" width="200px">
+                <div class="awesomeElementImageText">
+                    <h1>Heading</h1>
+                    <p> subheading </p>
+                </div>
+            </div>
+            <div class="awesomeElementImage">
+                <img src="img/pixelheart.jpg" height="200px" width="200px">
+                <div class="awesomeElementImageText">
+                    <h1>Heading</h1>
+                    <p> subheading </p>
+                </div>
+            </div>
+            <div class="awesomeElementImage">
+                <img src="img/pixelheart.jpg" height="200px" width="200px">
+                <div class="awesomeElementImageText">
+                    <h1>Heading</h1>
+                    <p> subheading </p>
+                </div>
+            </div>
+        </div>
+        <div class="awesomeElementNavigation">
+            <div class="buttonGroup group1">
+                <button>Button 1</button>
+                <button>Button 2</button>
+            </div>
+            <div class="buttonGroup group2">
+                <button>Button 3</button>
+                <button>Button 4</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+    <hr>
+<br>
+
+<h2>Example 2: </h2>
+<h3>Based mainly on custom Elements</h3>
+
+<awesome-Element>
+    <div class="awesomeElementContainer2">
+        <awesome-Element-Main>
+            <awesome-Element-Text>
+                <h1>Heading</h1>
+                <p> paragraph </p>
+                <p> second paragraph </p>
+            </awesome-Element-Text>
+        </awesome-Element-Main>
+        <awesome-Element-Sub2>
+            <awesome-Element-Image>
+                <img src="img/pixelheart.jpg" height="200px" width="200px">
+                <awesome-Element-Text>
+                    <h1>Heading</h1>
+                    <p> subheading </p>
+                </awesome-Element-Text>
+            </awesome-Element-Image>
+            <awesome-Element-Image>
+                <img src="img/pixelheart.jpg" height="200px" width="200px">
+                <awesome-Element-Text>
+                    <h1>Heading</h1>
+                    <p> subheading </p>
+                </awesome-Element-Text>
+            </awesome-Element-Image>
+            <awesome-Element-Image>
+                <img src="img/pixelheart.jpg" height="200px" width="200px">
+                <awesome-Element-Text>
+                    <h1>Heading</h1>
+                    <p> subheading </p>
+                </awesome-Element-Text>
+            </awesome-Element-Image>
+        </awesome-Element-Sub2>
+        <awesome-Element-Navigation>
+            <button-Group class="group1">
+                <button>Button 1</button>
+                <button>Button 2</button>
+            </button-Group>
+            <button-Group class="group2">
+                <button>Button 3</button>
+                <button>Button 4</button>
+            </button-Group>
+        </awesome-Element-Navigation>
+    </div>
+</awesome-Element>
+
+<br>
+    <hr>
+<br>
+
+<h2>Example 3: </h2>
+<h3> custom tags don´t have sizing </h3>
+
+<awesome-Element>
+    <awesome-Element-Container3>
+        <awesome-Element-Main>
+            <awesome-Element-Text>
+                <h1>Heading</h1>
+                <p> paragraph </p>
+                <p> second paragraph </p>
+            </awesome-Element-Text>
+        </awesome-Element-Main>
+        <awesome-Element-Sub3>
+            <awesome-Element-Image>
+                <img src="img/pixelheart.jpg" height="200px" width="200px">
+                <awesome-Element-Text>
+                    <h1>Heading</h1>
+                    <p> subheading </p>
+                </awesome-Element-Text>
+            </awesome-Element-Image>
+            <awesome-Element-Image>
+                <img src="img/pixelheart.jpg" height="200px" width="200px">
+                <awesome-Element-Text>
+                    <h1>Heading</h1>
+                    <p> subheading </p>
+                </awesome-Element-Text>
+            </awesome-Element-Image>
+            <awesome-Element-Image>
+                <img src="img/pixelheart.jpg" height="200px" width="200px">
+                <awesome-Element-Text>
+                    <h1>Heading</h1>
+                    <p> subheading </p>
+                </awesome-Element-Text>
+            </awesome-Element-Image>
+        </awesome-Element-Sub3>
+        <awesome-Element-Navigation>
+            <button-Group class="group1">
+                <button>Button 1</button>
+                <button>Button 2</button>
+            </button-Group>
+            <button-Group class="group2">
+                <button>Button 3</button>
+                <button>Button 4</button>
+            </button-Group>
+        </awesome-Element-Navigation>
+    </awesome-Element-Container3>
+</awesome-Element>
+
 </body>
 </html>
