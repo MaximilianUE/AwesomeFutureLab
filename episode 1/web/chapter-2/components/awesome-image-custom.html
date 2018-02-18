@@ -1,0 +1,75 @@
+<html>
+    <awesome-image-custom heading="demo" color="red" ></awesome-image-custom>
+</html>
+
+<style>
+    awesome-text {
+        text-align: center;
+    }
+
+</style>
+
+<template id="awesome-image-custom">
+
+    <img src="../img/pixelheart.jpg" height="200px" width="200px">
+    <awesome-text>
+        <h1> <span id="heading"></span> </h1>
+        <p id="subheading"> subheading </p>
+    </awesome-text>
+
+</template>
+
+
+<script>
+
+    const template = document.currentScript.ownerDocument.querySelector('template').content; //select this template
+    //polyfill: const template = (document.currentScript || document._currentScript).ownerDocument.querySelector('template').content;
+
+    class AwesomeImageCustom extends HTMLElement {
+
+        constructor() {
+
+            super(); //!important
+
+        }
+
+        get heading() { return this.getAttribute('heading') }
+        set heading(txt) {
+            this.setAttribute('heading', txt);
+            this.updateHeading();
+        }
+
+        get textColor() { return this.getAttribute('color') }
+        set textColor(clr) {
+            this.setAttribute('color', clr);
+            this.updateTextColor();
+        }
+
+
+        updateHeading() {
+            this.shadowRoot.querySelector('#heading').textContent = this.heading;
+        }
+
+        updateTextColor() {
+            this.shadowRoot.querySelector('#subheading').style.color  = this.textColor;
+        }
+
+        connectedCallback() { //call once it´s in the DOM
+
+            /** setup **/
+            this.attachShadow({mode: 'open'}); //outside access=> component
+            this.shadowRoot.appendChild(document.importNode(template, true)); //attach to main file
+
+            this.updateAll();
+        }
+
+        updateAll() {
+            this.updateHeading();
+            this.updateTextColor();
+        };
+
+    }
+
+    customElements.define('awesome-image-custom', AwesomeImageCustom); //export name, className
+
+</script>
