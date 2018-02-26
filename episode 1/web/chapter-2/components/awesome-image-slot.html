@@ -1,0 +1,47 @@
+<html>
+    <awesome-image-slot></awesome-image-slot>
+</html>
+
+<template id="awesome-image-slot">
+
+    <style>
+        awesome-text {
+            color: green;
+        }
+
+    </style>
+
+    <img src="img/pixelheart.jpg" height="200px" width="200px">
+    <awesome-text>
+        <h5 id="componentHeader">Heading</h5>
+        <slot></slot>
+        <p> subheading </p>
+    </awesome-text>
+
+</template>
+
+
+<script>
+
+    class AwesomeImageSlot extends HTMLElement {
+
+        constructor() {
+            super();
+
+            let shadowDom = this.attachShadow({mode: 'open'});
+            let template = document.currentScript.ownerDocument.getElementById('awesome-image-slot');
+            let templateHtml = template.content.cloneNode(true);
+            shadowDom.appendChild(templateHtml);
+        }
+
+        connectedCallback() {
+            console.log('doc call:', document.getElementById('documentHeader'));
+            console.log('component call [from dom]:', document.getElementById('componentHeader'));
+            console.log('component call [from component]:', this.shadowRoot.getElementById('componentHeader'));
+        }
+
+    }
+
+    customElements.define('awesome-image-slot', AwesomeImageSlot);
+
+</script>
