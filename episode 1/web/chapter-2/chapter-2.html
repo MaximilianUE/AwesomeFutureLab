@@ -5,15 +5,31 @@
     <title>Using templates</title>
 
     <link rel="import" href="components/awesome-image.html"/>
+    <link rel="import" href="components/awesome-image-slot.html"/>
     <link rel="import" href="components/awesome-image-custom.html"/>
+
 </head>
+
+<style>
+    #documentHeader {
+        text-align: center;
+        text-decoration: underline;
+    }
+</style>
 
 <body>
 
 <awesome-Element>
 
-    <h1>Image Import</h1>
+    <h1 id="documentHeader">Image Import</h1>
     <awesome-image></awesome-image>
+    <hr>
+    <awesome-image-slot>
+        <h1> You can do crazy shit like this!</h1>
+    </awesome-image-slot>
+    <hr>
     <awesome-image-custom heading="demo" color="red"></awesome-image-custom>
 
 </awesome-Element>
+
+</body>
