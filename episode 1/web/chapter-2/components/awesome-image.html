@@ -2,16 +2,9 @@
     <awesome-image></awesome-image>
 </html>
 
-<style>
-    awesome-text {
-        text-align: center;
-    }
-
-</style>
-
 <template id="awesome-image">
 
-    <img src="../img/pixelheart.jpg" height="200px" width="200px">
+    <img src="img/pixelheart.jpg" height="200px" width="200px">
     <awesome-text>
         <h1>Heading</h1>
         <p> subheading </p>
@@ -22,15 +15,15 @@
 
 <script>
 
-    const template = document.currentScript.ownerDocument.querySelector('template').content; //select this template
-    //polyfill: const template = (document.currentScript || document._currentScript).ownerDocument.querySelector('template').content;
+    let template = document.currentScript.ownerDocument.querySelector('template').content; //select this template
+    //polyfill: let template = (document.currentScript || document._currentScript).ownerDocument.querySelector('template').content;
+    //currentScript.ownerDocument for import
+
 
     class AwesomeImage extends HTMLElement {
 
         constructor() {
-
             super(); //!important
-
         }
 
         connectedCallback() { //call once it´s in the DOM
