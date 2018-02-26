@@ -2,16 +2,9 @@
     <awesome-image-custom heading="demo" color="red" ></awesome-image-custom>
 </html>
 
-<style>
-    awesome-text {
-        text-align: center;
-    }
-
-</style>
-
 <template id="awesome-image-custom">
 
-    <img src="../img/pixelheart.jpg" height="200px" width="200px">
+    <img src="img/pixelheart.jpg" height="200px" width="200px">
     <awesome-text>
         <h1> <span id="heading"></span> </h1>
         <p id="subheading"> subheading </p>
@@ -22,15 +15,12 @@
 
 <script>
 
-    const template = document.currentScript.ownerDocument.querySelector('template').content; //select this template
-    //polyfill: const template = (document.currentScript || document._currentScript).ownerDocument.querySelector('template').content;
+    let template = document.currentScript.ownerDocument.querySelector('template').content;
 
     class AwesomeImageCustom extends HTMLElement {
 
         constructor() {
-
-            super(); //!important
-
+            super();
         }
 
         get heading() { return this.getAttribute('heading') }
@@ -54,11 +44,11 @@
             this.shadowRoot.querySelector('#subheading').style.color  = this.textColor;
         }
 
-        connectedCallback() { //call once it´s in the DOM
+        connectedCallback() {
 
             /** setup **/
-            this.attachShadow({mode: 'open'}); //outside access=> component
-            this.shadowRoot.appendChild(document.importNode(template, true)); //attach to main file
+            this.attachShadow({mode: 'open'});
+            this.shadowRoot.appendChild(document.importNode(template, true));
 
             this.updateAll();
         }
@@ -70,6 +60,6 @@
 
     }
 
-    customElements.define('awesome-image-custom', AwesomeImageCustom); //export name, className
+    customElements.define('awesome-image-custom', AwesomeImageCustom);
 
 </script>
