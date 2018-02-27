@@ -15,12 +15,15 @@
 
 <script>
 
-    let template = document.currentScript.ownerDocument.querySelector('template').content;
-
     class AwesomeImageCustom extends HTMLElement {
 
         constructor() {
             super();
+
+            let shadowDom = this.attachShadow({mode: 'open'}); //outside access=> component
+            let template = document.currentScript.ownerDocument.getElementById('awesome-image-custom');
+            let templateHtml = template.content.cloneNode(true);
+            shadowDom.appendChild(templateHtml);
         }
 
         get heading() { return this.getAttribute('heading') }
@@ -45,10 +48,6 @@
         }
 
         connectedCallback() {
-
-            /** setup **/
-            this.attachShadow({mode: 'open'});
-            this.shadowRoot.appendChild(document.importNode(template, true));
 
             this.updateAll();
         }

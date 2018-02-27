@@ -15,24 +15,16 @@
 
 <script>
 
-    let template = document.currentScript.ownerDocument.querySelector('template').content; //select this template
-    //polyfill: let template = (document.currentScript || document._currentScript).ownerDocument.querySelector('template').content;
-    //currentScript.ownerDocument for import
-
-
     class AwesomeImage extends HTMLElement {
 
         constructor() {
             super(); //!important
+
+            let shadowDom = this.attachShadow({mode: 'open'}); //outside access=> component
+            let template = document.currentScript.ownerDocument.getElementById('awesome-image');
+            let templateHtml = template.content.cloneNode(true);
+            shadowDom.appendChild(templateHtml);
         }
-
-        connectedCallback() { //call once it´s in the DOM
-
-            /** setup **/
-            this.attachShadow({mode: 'open'}); //outside access=> component
-            this.shadowRoot.appendChild(document.importNode(template, true)); //attach to main file
-        }
-
     }
 
     customElements.define('awesome-image', AwesomeImage); //export name, className
